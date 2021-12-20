@@ -1,0 +1,22 @@
+{% extends "Appfinal/padre.html" %}
+{ load static  }
+
+        {% block contenido %}
+
+            <h1>Estamos buscando...</h1>
+
+            {% if clientes %}
+
+            <ul>
+                {% for cliente in clientes%}
+
+                <li>{{ cliente.nombre }}</li>
+                <li>{{ cliente.telefono }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+            {% endif %}
+
+        {% endblock %}

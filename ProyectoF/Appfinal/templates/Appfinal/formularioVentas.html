@@ -1,0 +1,23 @@
+{% extends "Appfinal/padre.html" %}
+{ load static  }
+
+
+{% block contenido %}
+
+    {%  if miFormulario.errors   %}
+
+    <p>ERROR!!</p>
+
+
+    {%    endif   %}
+
+<h5>Deja tu telefono y uno de nuestros asesores se contactará</h5>
+<form action="/Appfinal/formularioventas" method="post">
+{%csrf_token %}
+<p>Nombre:  <input type="text" name="nombre"> </p>
+<p>Telefono: <input type="number" name="telefono"></p>
+
+<input type="submit" name="Enviar">
+</form>
+
+{% endblock %}

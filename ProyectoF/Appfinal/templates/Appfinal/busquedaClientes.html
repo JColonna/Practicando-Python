@@ -1,0 +1,16 @@
+{% extends "Appfinal/padre.html" %}
+{ load static  }
+
+{% block contenido %}
+
+<form action="/Appfinal/buscar/" method="GET">
+    <h1>Busqueda de clientes</h1>
+
+    <P>Nombre: <input type="text" name="nombre" id="nombre"></P>
+    <input type="submit" value="ENVIAR">
+
+</form>
+
+
+
+{% endblock %}

@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Nosotros' %}">Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Ventas' %}">Ventas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Contacto' %}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'FormularioVentas' %}">Contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +47,9 @@
                 </div>
             </div>
         </header>
+        {% block contenido %}
 
+        {% endblock %}
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
         <!-- Bootstrap core JS-->

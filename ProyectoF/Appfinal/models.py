@@ -1,12 +1,14 @@
 from django.db import models
+from django.db.models.base import Model
 
 # Create your models here.
 
 
-class Registro(models.Model):
-    nombre = models.CharField(max_length=20)
-    apellido = models.CharField(max_length=20)
-    dni = models.IntegerField()
+class FormularioVentas(models.Model):
+    nombre = models.CharField(max_length=40)
+    telefono = models.IntegerField()
 
     def __str__(self):
-        return f'Nombre {self.nombre}, Apellido: {self.apellido}, DNI Nº: {dni}'
+        return (f'Nombre: {self.nombre}, Telefono: {self.telefono}')
+
+
