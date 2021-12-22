@@ -1,0 +1,19 @@
+{% extends "Appfinal/padre.html" %}
+{ load static  }
+
+{% block contenido %}
+
+{% for cliente in clientes%}
+    <li>{{ cliente }}</li>
+    <button>
+        <a href="{% url 'EliminarCliente' cliente.nombre %}">Eliminar</a>
+    </button>
+    
+
+{% endfor %}
+
+<br>
+<a href="#">Agregar otro cliente</a>
+
+{% endblock %}
+

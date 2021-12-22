@@ -42,13 +42,29 @@ def buscar(request):
         clientes = FormularioVentas.objects.filter(nombre__icontains=nombre)
         respuesta = f'Estoy buscando el cliente que se llama: {request.GET["nombre"]} '
 
-        return render(request, "Appfinal/resultadoBusqueda.html", {"cliente": clientes, "nombre":nombre } )
+        return render(request, "Appfinal/resultadoBusqueda.html", {"clientes": clientes, "nombre":nombre } )
 
     else:
 
         respuesta = "Che, mandame informacion"
 
     return HttpResponse(respuesta)
+
+#CRUD AVANZADO
+
+def leerClientes(request):
+    clientes = FormularioVentas.objects.all()
+    dir = {"clientes": clientes}
+    return render(request, "Appfinal/leerClientes.html", dir)
+
+def eliminarCliente(request, clienteQueQuieroBorrar):
+    clienteQueBorro = FormularioVentas.objects.get(nombre=clienteQueQuieroBorrar)
+    clienteQueBorro.delete()
+
+    #vuelvo al menu
+    clientes = FormularioVentas.objects.all()
+    dir = {"clientes": clientes}
+    return render(request, "Appfinal/leerClientes.html", dir)
     
 
 
