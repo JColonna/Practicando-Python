@@ -8,12 +8,13 @@
     <button>
         <a href="{% url 'EliminarCliente' cliente.nombre %}">Eliminar</a>
     </button>
+    <button><a href="{% url 'EditarCliente' cliente.nombre %}">Editar</a></button>
     
 
 {% endfor %}
 
 <br>
-<a href="#">Agregar otro cliente</a>
+<a href="{% url 'FormularioVentas' %}">Agregar otro cliente</a>
 
 {% endblock %}
 

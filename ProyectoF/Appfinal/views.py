@@ -65,6 +65,24 @@ def eliminarCliente(request, clienteQueQuieroBorrar):
     clientes = FormularioVentas.objects.all()
     dir = {"clientes": clientes}
     return render(request, "Appfinal/leerClientes.html", dir)
+
+def editarCliente(request, clienteQueQuieroEditar):
+        cliente = FormularioVentas.objects.get(nombre = clienteQueQuieroEditar)
+        if request.method == "POST":
+            miFormulario = FormularioVentas(request.POST)
+            if miFormulario.is_valid():
+                informacion = miFormulario.cleaned_data
+
+                cliente.nombre = informacion['nombre'],
+                cliente.telefono = informacion['telefono']
+
+                cliente.save()
+                return render(request, "Appfinal/formularioVentas.html")
+            else:
+                miFormulario = FormularioVentas(initial={"nombre": cliente.nombre, "telefono": cliente.telefono} )
+
+
+        return render(request, 'Appfinal/formularioVentas.html')  
     
 
 
