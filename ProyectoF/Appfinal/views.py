@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, response
 
-from Appfinal.models import FormularioVentas
+from Appfinal.models import FormularioVentas, FormularioCursos
 from .forms import *
 
 
@@ -77,12 +77,22 @@ def editarCliente(request, clienteQueQuieroEditar):
                 cliente.telefono = informacion['telefono']
 
                 cliente.save()
-                return render(request, "Appfinal/formularioVentas.html")
+                return render(request, "Appfinal/editarCliente.html")
             else:
                 miFormulario = FormularioVentas(initial={"nombre": cliente.nombre, "telefono": cliente.telefono} )
 
 
-        return render(request, 'Appfinal/formularioVentas.html')  
+        return render(request, 'Appfinal/editarCliente.html')  
+
+
+def formularioCursos(request):
+    if request.method == "POST":
+            curso = FormularioCursos(curso=request.POST['curso'], comision= request.POST['comision'])
+            curso.save()
+            return render(request, "Appfinal/inicio.html")
+
+
+    return render(request, 'Appfinal/formularioCursos.html')  
     
 
 

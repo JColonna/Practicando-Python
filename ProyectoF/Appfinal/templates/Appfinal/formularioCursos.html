@@ -1,0 +1,23 @@
+{% extends "Appfinal/padre.html" %}
+{ load static  }
+
+
+{% block contenido %}
+
+    {%  if miFormulario.errors   %}
+
+    <p>ERROR!!</p>
+
+
+    {%    endif   %}
+
+<h5>Formulario Curso</h5>
+<form action="/Appfinal/formulariocursos" method="post">
+{%csrf_token %}
+<p>Curso:  <input type="text" name="curso"> </p>
+<p>Comision: <input type="number" name="comision"></p>
+
+<input type="submit" name="Enviar">
+</form>
+
+{% endblock %}

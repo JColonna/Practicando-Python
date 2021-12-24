@@ -1,0 +1,14 @@
+{% extends "Appfinal/padre.html" %}
+{ load static  }
+
+{% block contenido %}
+<h5>Editar cliente</h5>
+<form action="/Appfinal/editarcliente/" method="post">
+{%csrf_token %}
+<p>Nombre:  <input type="text" name="nombre"> </p>
+<p>Telefono: <input type="number" name="telefono"></p>
+
+<input type="submit" name="Editar">
+</form>
+
+{% endblock%}
