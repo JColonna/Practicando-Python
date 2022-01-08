@@ -1,0 +1,27 @@
+{% extends "Appfinal/padre.html" %}
+{ load static  }
+
+{% block contenido %}
+<h1>Aca tenemos todos los cursos</h1>
+
+{% for curso in object_list%}
+    <li>{{ curso.curso }}</li>
+    <button>
+        <a href="{% url 'Detail' curso.id %}">Ver Mas</a>
+    </button>
+    <button>
+        <a href="{% url 'Update' curso.id %}">Editar</a>
+    </button>
+    <button>
+        <a href="{% url 'Delete' curso.id %}">Borrar</a>
+    </button>
+    
+
+{% endfor %}
+
+<br>
+<a href="{% url 'New' %}">Agregar curso</a>
+
+
+{% endblock %}
+

@@ -10,5 +10,10 @@ class FormularioVentas(models.Model):
 
     def __str__(self):
         return (f'Nombre: {self.nombre}, Telefono: {self.telefono}')
+class Curso(models.Model):
+    curso = models.CharField(max_length=40)
+    comision = models.IntegerField()
+    def __str__(self):
+        return (f'Curso: {self.curso}, Comision: {self.comision}')
 
 
